@@ -1,13 +1,15 @@
-function extract(content) {
+function extract(elementId) {
+    let content = document.getElementById(elementId).textContent;
+    let pattern = /\((.+?)\)/g;
+    let match = pattern.exec(content);
     let result = [];
-    const text = document.getElementById(content).textContent;
-    let arr = text.split(" ");
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i].length > 0 && arr[i][0] === '(') {
-            result.push(arr[i].substring(1, arr[i].length - 1));
-        }
+    while (match) {
+        result.push(match[1]);
+        match = pattern.exec(content);
     }
-
     return result.join("; ");
 }
+
+let text = extract("content");
+console.log(text);
 
