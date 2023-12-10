@@ -1,60 +1,23 @@
-function solve(input) {
-    let horses = input.shift().split('|');
+function solve(arr) {
+    let arr2 = arr.toString().split(',');
+    let horses = arr2[0].split('|');
+    while (arr2.length > 0){
+        arr2.shift();
 
-    while (input.length > 0) {
-        let currentCommand = input.shift().split(' ');
-        let command = currentCommand[0];
-
-        if (command === 'Finish') {
-            break;
-        }
-        console.log(command);
-        switch (command) {
+        let command = arr2.toString().split(' ');
+        switch (command[0]){
             case 'Retake':
-                retake(currentCommand.slice(1), horses);
-                break;
-            case 'Trouble':
-                trouble(currentCommand[1], horses);
-                break;
-            case 'Rage':
-                rage(currentCommand[1], horses);
-                break;
-            case 'Miracle':
-                miracle(horses);
+                let first = horses.indexOf(command[1]);
+                let second = horses.indexOf(command[2]);
+                console.log(command[2])
+                if(first < second){
+                    let temp = horses[first];
+                    horses[first] = horses[second];
+                    horses[second] = temp;
+                    console.log(`${horses[first]} retakes ${horses[second]}.`);
+                }
                 break;
         }
-    }
-
-    function retake(arr, horses) {
-        let first = horses.indexOf(arr[0]);
-        let second = horses.indexOf(arr[1]);
-
-        if (first < second) {
-            [horses[first], horses[second]] = [horses[second], horses[first]];
-            console.log(`${arr[0]} retakes ${arr[1]}.`);
-        }
-    }
-
-    function trouble(name, horses) {
-        let index = horses.indexOf(name);
-        if (index < horses.length - 1) {
-            [horses[index], horses[index + 1]] = [horses[index + 1], horses[index]];
-            console.log(`Trouble for ${name} - drops one position.`);
-        }
-    }
-
-    function rage(name, horses) {
-        let index = horses.indexOf(name);
-        if (index < 2) {
-            console.log('aaaaaaaaaa');
-            [horses[0], horses[index]] = [horses[index], horses[0]];
-            console.log(`${name} rages 2 positions ahead.`);
-        }
-    }
-
-    function miracle(horses) {
-        [horses[0], horses[2]] = [horses[2], horses[0]];
-        console.log(`What a miracle - ${horses[0]} becomes first.`);
     }
 }
 
