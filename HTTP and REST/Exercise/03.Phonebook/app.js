@@ -1,5 +1,5 @@
 function attachEvents() {
-    // TODO:
+
 }
 
 attachEvents();
