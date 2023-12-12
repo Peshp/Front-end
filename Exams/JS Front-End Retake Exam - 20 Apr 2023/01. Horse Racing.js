@@ -1,30 +1,63 @@
-function solve(arr) {
-    let arr2 = arr.toString().split(',');
-    let horses = arr2[0].split('|');
-    while (arr2.length > 0){
-        arr2.shift();
+function solve(input) {
+    const horses = input.shift().split('|');
+    while (input.length > 0){
+        let arr = input[0].split(' ');
+        let command = arr[0];
 
-        let command = arr2.toString().split(' ');
-        switch (command[0]){
+        switch (command){
             case 'Retake':
-                let first = horses.indexOf(command[1]);
-                let second = horses.indexOf(command[2]);
-                console.log(command[2])
-                if(first < second){
-                    let temp = horses[first];
-                    horses[first] = horses[second];
-                    horses[second] = temp;
-                    console.log(`${horses[first]} retakes ${horses[second]}.`);
+                let overtaking = arr[1];
+                let overtaken = arr[2];
+                let indexI = horses.indexOf(overtaking);
+                let indexA = horses.indexOf(overtaken);
+                if(indexI < indexA){
+                    horses[indexI] = overtaken;
+                    horses[indexA] = overtaking;
+                    console.log(`${overtaking} retakes ${overtaken}.`);
                 }
                 break;
+            case 'Trouble':
+                let horse = arr[1];
+                let indexH = horses.indexOf(horse);
+                let horse2 = horses[indexH - 1];
+                if(indexH > 0){
+                    horses[indexH - 1] = horse;
+                    horses[indexH] = horse2;
+                    console.log(`Trouble for ${horse} - drops one position.`);
+                }
+                break;
+            case 'Rage':
+                let horse1 = arr[1];
+                let index = horses.indexOf(horse1);
+                if(index < horses.length){
+                    if(index === horses[horses.length - 2]){
+                        let horseFirst = horses[horses.length - 1];
+                        horses[horses.length - 2] = horseFirst;
+                        horses[horses.length - 1] = horse1;
+                        console.log(`${horse1} rages 2 positions ahead.`);
+                    } else if(index === horses[horses.length - 3]){
+                        horses[horses.length - 2] = horseFirst;
+                        horses[horses.length - 1] = horse1;
+                    } else{
+                        let horseRandom = horses[index + 2];
+                        horses[index + 2] = horse1;
+                        horses[index - 1] = horseRandom;
+                    }
+                }
+                break;
+            case 'Miracle':
+                break;
         }
+
+        input.shift();
     }
 }
 
-solve(['Bella|Alexia|Sugar',
-    'Retake Alexia Sugar',
-    'Rage Bella',
-    'Trouble Bella',
+solve(['Onyx|Domino|Sugar|Fiona',
+    'Trouble Onyx',
+    'Retake Onyx Sugar',
+    'Rage Domino',
+    'Miracle',
     'Finish']
 );
 
