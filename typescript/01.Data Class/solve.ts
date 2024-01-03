@@ -1,3 +1,4 @@
+
 var Data = /** @class */ (function () {
     function Data(method, url, version, message) {
         this.Method = method;
