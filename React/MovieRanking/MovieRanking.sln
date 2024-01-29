@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34511.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieRanking.Server", "MovieRanking.Server\MovieRanking.Server.csproj", "{48F49F60-5972-4E22-A194-320CDC7ABECB}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "movieranking.client", "movieranking.client\movieranking.client.esproj", "{12A5BFE7-8513-442A-9648-54A1D8DC4C5E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{48F49F60-5972-4E22-A194-320CDC7ABECB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48F49F60-5972-4E22-A194-320CDC7ABECB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48F49F60-5972-4E22-A194-320CDC7ABECB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48F49F60-5972-4E22-A194-320CDC7ABECB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12A5BFE7-8513-442A-9648-54A1D8DC4C5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{12A5BFE7-8513-442A-9648-54A1D8DC4C5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{12A5BFE7-8513-442A-9648-54A1D8DC4C5E}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{12A5BFE7-8513-442A-9648-54A1D8DC4C5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{12A5BFE7-8513-442A-9648-54A1D8DC4C5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{12A5BFE7-8513-442A-9648-54A1D8DC4C5E}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {74A3BADE-C01D-474A-978C-E3D950E6930A}
+	EndGlobalSection
+EndGlobal

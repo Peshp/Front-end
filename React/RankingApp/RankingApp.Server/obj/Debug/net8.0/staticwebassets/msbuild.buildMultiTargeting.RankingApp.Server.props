@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="..\build\RankingApp.Server.props" />
-</Project>
